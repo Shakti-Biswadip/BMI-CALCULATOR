@@ -74,7 +74,7 @@ function bmiCalculator() {
         } else if (bmi <= 35) {
             document.querySelector(".statement").innerText = "Obese";
         } else {
-            document.querySelector(".statement").innerText = "Too obese";
+            document.querySelector(".statement").innerText = "No Input";
         }
     }
 }
