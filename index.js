@@ -26,6 +26,7 @@ function bmiCalculator() {
             document.querySelector(".statement").innerText = "Obese";
         } else {
             document.querySelector(".statement").innerText = "No Input";
+            document.querySelector(".result").innerText = "??";
         }
     }
 }
