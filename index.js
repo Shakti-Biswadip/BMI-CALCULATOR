@@ -32,7 +32,7 @@
 //         document.querySelector(".statement").innerHTML="obese";
 //     }
 //     else if( bmi > 35) {
-//         document.querySelector(".statement").innerHTML="Too obese";
+//         document.querySelector(".statement").innerHTML="No Input";
 //     }
 // }
 
