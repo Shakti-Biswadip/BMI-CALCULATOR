@@ -1,3 +1,5 @@
+var audio; // Declare audio variable outside the function to control it globally
+
 function bmiCalculator() {
     var yourWeight = parseFloat(document.querySelector("#weight").value);
     var yourHeight = parseFloat(document.querySelector("#height").value);
@@ -7,20 +9,28 @@ function bmiCalculator() {
     document.querySelector(".result p").innerText = bmi;
     document.querySelector(".score").innerText = "⬇Result⬇";
 
+    // Handle audio playback
+    if (!audio) {
+        audio = new Audio("./happyBirthday.mp3");
+    }
+
     if (yourWeight === 20 && yourHeight === 24) {
         document.querySelector(".statement").innerText = "🎉Happy Birthday🎉";
-        document.querySelector(".statement").style.fontSize="20px";
         document.querySelector(".statement").style.fontSize = "25px";
         document.querySelector(".shaktiSaha").style.display = "block"; // Make image visible
-        
 
-        function happyBirthday() {
-    var audio = new Audio("./happyBirthday.mp3");
-    audio.play();
+        if (audio.paused) { // Only play the audio if it's not already playing
+            audio.play();
         }
-        
     } else {
         document.querySelector(".shaktiSaha").style.display = "none"; // Hide image otherwise
+
+        // Stop the audio if it's playing
+        if (!audio.paused) {
+            audio.pause();
+            audio.currentTime = 0; // Reset audio to the start
+        }
+
         if (bmi <= 18.5) {
             document.querySelector(".statement").innerText = "Under weight";
         } else if (bmi <= 25) {
@@ -35,7 +45,5 @@ function bmiCalculator() {
         }
     }
 }
-
-
 
 document.querySelector(".buttonResult").addEventListener("click", bmiCalculator);
