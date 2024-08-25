@@ -13,6 +13,12 @@ function bmiCalculator() {
         document.querySelector(".statement").style.fontSize = "25px";
         document.querySelector(".shaktiSaha").style.display = "block"; // Make image visible
         document.querySelector(".buttonResult").addEventListener("click", happyBirthday);
+
+        function happyBirthday() {
+    var audio = new Audio("./happyBirthday.mp3");
+    audio.play();
+        }
+        
     } else {
         document.querySelector(".shaktiSaha").style.display = "none"; // Hide image otherwise
         if (bmi <= 18.5) {
@@ -30,9 +36,6 @@ function bmiCalculator() {
     }
 }
 
-function happyBirthday() {
-    var audio = new Audio("./happyBirthday.mp3");
-    audio.play();
-}
+
 
 document.querySelector(".buttonResult").addEventListener("click", bmiCalculator);
